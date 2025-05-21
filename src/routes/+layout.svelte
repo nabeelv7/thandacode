@@ -1,6 +1,7 @@
 <script>
   import "../app.css";
   import { signIn } from "@auth/sveltekit/client";
+  import { signOut } from "@auth/sveltekit/client";
 
   let { data, children } = $props();
 
@@ -29,11 +30,23 @@
     </div>
     <div class="flex-none">
       <ul class="menu menu-horizontal px-1">
-        <div class="avatar cursor-pointer">
-          <div class="w-10 rounded-full">
-            <img src={data.session.user.image} alt="avatar" />
-          </div>
-        </div>
+        <details class="dropdown dropdown-end">
+          <summary class="avatar cursor-pointer">
+            <div class="w-10 rounded-full">
+              <img src={data.session.user.image} alt="avatar" />
+            </div>
+          </summary>
+          <ul
+            class="menu dropdown-content bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+          >
+            <p class="text-xl font-bold p-2">{data.session.user.name}</p>
+            <li>
+              <button class="btn btn-outline btn-error" onclick={signOut}
+                >Logout &nearr;</button
+              >
+            </li>
+          </ul>
+        </details>
       </ul>
     </div>
   </nav>
