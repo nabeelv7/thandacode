@@ -86,3 +86,12 @@ export const authenticators = sqliteTable(
 );
 
 // main schema
+export const repos = sqliteTable("repo", {
+  id: integer("id").primaryKey({ autoIncrement: true }).notNull(),
+  name: text("name").notNull(),
+  ownerId: text("ownerId")
+    .notNull()
+    .references(() => users.id, { onDelete: "cascade" }),
+  createdAt: integer("createdAt").notNull(),
+  updatedAt: integer("updatedAt"),
+});

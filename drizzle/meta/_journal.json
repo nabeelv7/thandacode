@@ -8,6 +8,13 @@
       "when": 1747837130386,
       "tag": "0000_parched_wendell_rand",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1747839834658,
+      "tag": "0001_bouncy_guardian",
+      "breakpoints": true
     }
   ]
 }
